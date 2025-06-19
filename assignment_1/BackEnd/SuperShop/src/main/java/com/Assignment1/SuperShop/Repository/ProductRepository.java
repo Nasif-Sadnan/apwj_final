@@ -14,10 +14,25 @@ import java.util.stream.Collectors;
 public class ProductRepository {
     public static final List<Product> products = new ArrayList<>();
     static {
-        products.add(new Product(1, "Tomato", ProductCategory.Vegetables, 10.0, 10, LocalDate.of(2025, 7, 12), true));
-        products.add(new Product(2, "Potato", ProductCategory.Vegetables, 10.0, 10, LocalDate.of(2025, 5, 12), true));
-        products.add(new Product(3, "Cabbage", ProductCategory.Vegetables, 10.0, 10, LocalDate.of(2025, 5, 12), true));
-        products.add(new Product(4, "Onion", ProductCategory.Vegetables, 10.0, 10, LocalDate.of(2025, 5, 12), true));
+        products.add(new Product(1, "Tomato", ProductCategory.Vegetables, 12.0, 10, LocalDate.of(2025, 7, 12), true));
+        products.add(new Product(2, "Potato", ProductCategory.Vegetables, 11.4, 10, LocalDate.of(2025, 6, 21), true));
+        products.add(new Product(3, "Cabbage", ProductCategory.Vegetables, 14.0, 10, LocalDate.of(2025, 6, 22), true));
+        products.add(new Product(4, "Onion", ProductCategory.Vegetables, 17.0, 10, LocalDate.of(2025, 6, 23), true));
+        products.add(new Product(5, "Beef", ProductCategory.Meat, 665.0, 12, LocalDate.of(2025, 6, 21), true));
+        products.add(new Product(6, "Pork", ProductCategory.Meat, 300.0, 10, LocalDate.of(2025, 6, 26), true));
+        products.add(new Product(7, "Chicken", ProductCategory.Meat, 325.4, 10, LocalDate.of(2025, 6, 27), true));
+        products.add(new Product(8, "Milk", ProductCategory.Groceries, 18.0, 10, LocalDate.of(2025, 6, 21), true));
+        products.add(new Product(9, "Bread", ProductCategory.Groceries, 10.0, 10, LocalDate.of(2025, 6, 21), true));
+        products.add(new Product(10, "Rice", ProductCategory.Groceries, 14.0, 10, LocalDate.of(2025, 6, 23), true));
+        products.add(new Product(11, "Sugar", ProductCategory.Groceries, 12.0, 10, LocalDate.of(2025, 6, 27), true));
+        products.add(new Product(12, "Salt", ProductCategory.Groceries, 10.0, 10, LocalDate.of(2025, 6, 27), true));
+        products.add(new Product(13, "Soap", ProductCategory.BeautyCare, 12.0, 10, LocalDate.of(2025, 6, 20), true));
+        products.add(new Product(14, "Shampoo", ProductCategory.BeautyCare, 12.0, 10, LocalDate.of(2025, 6, 21), true));
+        products.add(new Product(15, "Toothpaste", ProductCategory.BeautyCare, 17.0, 10, LocalDate.of(2025, 6, 22), true));
+        products.add(new Product(16, "Toothbrush", ProductCategory.BeautyCare, 12.6, 10, LocalDate.of(2025, 6, 21), true));
+        products.add(new Product(17, "Cycle", ProductCategory.Others, 10000.0, 10, LocalDate.of(2029, 6, 21), true));
+        products.add(new Product(18, "Mobile", ProductCategory.Others, 10000.0, 10, LocalDate.of(2029, 6, 21), true));
+
     }
 
     public List<Product> getAllProducts() {
