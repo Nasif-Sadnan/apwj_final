@@ -94,7 +94,11 @@ public class ProductRepository {
                 .toList();
     }
 
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> 0f2c241f1a6abe2dd499d7d22df4053ffd1772c0
     public void markExpiredProductsUnavailable() {
         LocalDate today = LocalDate.now();
         products.forEach(p -> {
