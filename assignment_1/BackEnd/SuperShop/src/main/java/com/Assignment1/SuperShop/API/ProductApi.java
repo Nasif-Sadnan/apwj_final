@@ -79,7 +79,7 @@ public class ProductApi {
         return productService.getTotalValueGroupedByCategory();
     }
 
-    // ✅ NEW: Products by category with discounts
+
     @GetMapping("/report/discounted-by-category")
     public List<Product> getDiscountedByCategory(@RequestParam ProductCategory category,
                                                  @RequestParam double rate) {

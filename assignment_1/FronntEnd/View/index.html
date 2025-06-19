@@ -15,7 +15,7 @@
 
 <h1>Super Shop Inventory</h1>
 
-<!-- ✅ Add Product -->
+
 <h2>Add a Product</h2>
 <form id="productForm">
   <input type="number" placeholder="ID" id="id" required>
@@ -37,7 +37,7 @@
   <button type="submit">Add Product</button>
 </form>
 
-<!-- ✅ Update Product -->
+
 <h2>Update Product</h2>
 <form id="updateForm">
   <input type="number" placeholder="ID" id="updateId" required>
@@ -61,18 +61,18 @@
 
 <hr>
 
-<!-- ✅ Load All -->
+
 <h2>All Products</h2>
 <button onclick="fetchAllProducts()">Load All</button>
 <table id="allTable"></table>
 
-<!-- ✅ Get by ID -->
+
 <h2>Get Product By ID</h2>
 <input type="number" id="getId" placeholder="Enter ID">
 <button onclick="fetchById()">Get Product</button>
 <table id="idTable"></table>
 
-<!-- ✅ Get by Category -->
+
 <h2>Products by Category</h2>
 <select id="getCategory">
   <option>BeautyCare</option>
@@ -84,17 +84,17 @@
 <button onclick="fetchByCategory()">Load By Category</button>
 <table id="categoryTable"></table>
 
-<!-- ✅ Available Products -->
+
 <h2>Available Products</h2>
 <button onclick="fetchAvailable()">Load Available Products</button>
 <table id="availableTable"></table>
 
-<!-- ✅ Expiring -->
+
 <h2>Expiring Soon (Next 7 Days)</h2>
 <button onclick="fetchExpiring()">Load Expiring Products</button>
 <table id="expiringTable"></table>
 
-<!-- ✅ Discounted by Category -->
+
 <h2>Discounted Products by Category</h2>
 <form id="discountForm">
   <select id="discountCategory">
@@ -109,20 +109,20 @@
 </form>
 <table id="discountTable"></table>
 
-<!-- ✅ Total Value -->
+
 <h2>Total Value Grouped By Category</h2>
 <button onclick="fetchTotalValue()">Load Total Value Report</button>
 <table id="totalValueTable"></table>
 
-<!-- ✅ Delete Product -->
+
 <h2>Delete Product</h2>
 <input type="number" id="deleteId" placeholder="Enter ID to Delete">
 <button onclick="deleteProduct()">Delete Product</button>
 
 <script>
-const api = 'http://localhost:8080/product'; // Adjust if needed
+const api = 'http://localhost:8080/product'; 
 
-// ✅ Add Product
+
 document.getElementById('productForm').onsubmit = async function(e) {
   e.preventDefault();
   const product = {
@@ -143,7 +143,7 @@ document.getElementById('productForm').onsubmit = async function(e) {
   document.getElementById('productForm').reset();
 };
 
-// ✅ Update Product
+
 document.getElementById('updateForm').onsubmit = async function(e) {
   e.preventDefault();
   const product = {
@@ -164,14 +164,14 @@ document.getElementById('updateForm').onsubmit = async function(e) {
   document.getElementById('updateForm').reset();
 };
 
-// ✅ Fetch All
+
 async function fetchAllProducts() {
   const res = await fetch(`${api}/all`);
   const data = await res.json();
   renderTable('allTable', data);
 }
 
-// ✅ Fetch by ID
+
 async function fetchById() {
   const id = document.getElementById('getId').value;
   const res = await fetch(`${api}/${id}`);
@@ -179,7 +179,7 @@ async function fetchById() {
   renderTable('idTable', [data]);
 }
 
-// ✅ Fetch by Category
+
 async function fetchByCategory() {
   const category = document.getElementById('getCategory').value;
   const res = await fetch(`${api}/category/${category}`);
@@ -187,21 +187,21 @@ async function fetchByCategory() {
   renderTable('categoryTable', data);
 }
 
-// ✅ Fetch Available
+
 async function fetchAvailable() {
   const res = await fetch(`${api}/available`);
   const data = await res.json();
   renderTable('availableTable', data);
 }
 
-// ✅ Fetch Expiring
+
 async function fetchExpiring() {
   const res = await fetch(`${api}/expiring`);
   const data = await res.json();
   renderTable('expiringTable', data);
 }
 
-// ✅ Fetch Discounted
+
 document.getElementById('discountForm').onsubmit = async function(e) {
   e.preventDefault();
   const category = document.getElementById('discountCategory').value;
@@ -211,21 +211,21 @@ document.getElementById('discountForm').onsubmit = async function(e) {
   renderDiscountTable('discountTable', data, rate);
 };
 
-// ✅ Fetch Total Value
+
 async function fetchTotalValue() {
   const res = await fetch(`${api}/report/total-value`);
   const data = await res.json();
   renderTotalValueTable('totalValueTable', data);
 }
 
-// ✅ Delete Product
+
 async function deleteProduct() {
   const id = document.getElementById('deleteId').value;
   await fetch(`${api}/delete/${id}`, { method: 'DELETE' });
   alert('Product deleted!');
 }
 
-// ✅ Render Generic Table
+
 function renderTable(tableId, data) {
   let html = '<tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Qty</th><th>Expiry</th><th>Available</th></tr>';
   data.forEach(p => {
@@ -242,7 +242,7 @@ function renderTable(tableId, data) {
   document.getElementById(tableId).innerHTML = html;
 }
 
-// ✅ Render Discount Table
+
 function renderDiscountTable(tableId, data, discountRate) {
   let html = '<tr><th>ID</th><th>Name</th><th>Category</th><th>Original Price</th><th>Discounted Price</th><th>Qty</th><th>Expiry</th><th>Available</th></tr>';
   data.forEach(p => {
@@ -262,7 +262,7 @@ function renderDiscountTable(tableId, data, discountRate) {
   document.getElementById(tableId).innerHTML = html;
 }
 
-// ✅ Render Total Value Table
+
 function renderTotalValueTable(tableId, data) {
   let html = '<tr><th>Category</th><th>Total Value</th></tr>';
   for (const [category, value] of Object.entries(data)) {
