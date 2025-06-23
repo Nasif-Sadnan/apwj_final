@@ -1,0 +1,6 @@
+User: user | Method: CategoryApi.getAll() | Time: 2025-06-23T15:24:34.226918600
+User: user | Method: CategoryService.getAll() | Time: 2025-06-23T15:24:34.254224500
+User: user | Method: ProductCategoryRepository.getAll() | Time: 2025-06-23T15:24:34.255377800
+User: admin | Method: CategoryApi.getAll() | Time: 2025-06-23T15:24:57.969273300
+User: admin | Method: CategoryService.getAll() | Time: 2025-06-23T15:24:57.970918500
+User: admin | Method: ProductCategoryRepository.getAll() | Time: 2025-06-23T15:24:57.971370500
