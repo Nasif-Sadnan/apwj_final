@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2025 at 11:59 AM
+-- Generation Time: Jun 23, 2025 at 01:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,15 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL,
   `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `product_id`, `quantity`, `added_at`) VALUES
+(1, 1, 2, 2, '2025-06-23 11:15:09'),
+(2, 1, 3, 1, '2025-06-23 11:15:09'),
+(3, 3, 5, 5, '2025-06-23 11:15:09');
 
 -- --------------------------------------------------------
 
@@ -70,6 +79,14 @@ CREATE TABLE `invoice` (
   `total_amount` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`id`, `order_id`, `generated_at`, `total_amount`) VALUES
+(1, 1, '2025-06-23 11:15:09', 10.00),
+(2, 2, '2025-06-23 11:15:09', 6.00);
+
 -- --------------------------------------------------------
 
 --
@@ -83,6 +100,15 @@ CREATE TABLE `logs` (
   `access_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`id`, `username`, `method`, `access_time`) VALUES
+(1, 'john_doe', 'GET /products', '2025-06-23 11:15:09'),
+(2, 'admin_user', 'POST /products/add', '2025-06-23 11:15:09'),
+(3, 'jane_smith', 'GET /cart/view', '2025-06-23 11:15:09');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +121,14 @@ CREATE TABLE `orders` (
   `total_amount` decimal(10,2) DEFAULT NULL,
   `order_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `total_amount`, `order_date`) VALUES
+(1, 1, 10.00, '2025-06-23 11:15:09'),
+(2, 3, 6.00, '2025-06-23 11:15:09');
 
 -- --------------------------------------------------------
 
@@ -110,6 +144,15 @@ CREATE TABLE `order_items` (
   `price` decimal(10,2) NOT NULL,
   `discount` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `discount`) VALUES
+(1, 1, 2, 2, 3.00, 0.00),
+(2, 1, 3, 1, 1.50, 0.00),
+(3, 2, 5, 5, 1.20, 0.00);
 
 -- --------------------------------------------------------
 
@@ -127,6 +170,17 @@ CREATE TABLE `products` (
   `available` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `price`, `quantity`, `expiry_date`, `category_id`, `available`) VALUES
+(1, 'Rice 5kg', 8.99, 50, '2025-12-31', 1, 1),
+(2, 'Chicken Breast', 5.49, 30, '2025-06-28', 2, 1),
+(3, 'Carrots 1kg', 2.20, 100, '2025-07-10', 3, 1),
+(4, 'Shampoo 250ml', 4.99, 40, '2026-01-01', 4, 1),
+(5, 'Tissue Box', 1.99, 75, '2026-12-31', 5, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -140,6 +194,15 @@ CREATE TABLE `users` (
   `role` enum('USER','ADMIN') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
+(1, 'john_doe', 'password123', 'USER'),
+(2, 'admin_user', 'adminpass', 'ADMIN'),
+(3, 'jane_smith', 'securepass', 'USER');
+
 -- --------------------------------------------------------
 
 --
@@ -152,6 +215,15 @@ CREATE TABLE `wishlist` (
   `product_id` int(11) DEFAULT NULL,
   `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `user_id`, `product_id`, `added_at`) VALUES
+(1, 1, 2, '2025-06-23 11:15:09'),
+(2, 1, 4, '2025-06-23 11:15:09'),
+(3, 3, 1, '2025-06-23 11:15:09');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +302,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -242,43 +314,43 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
