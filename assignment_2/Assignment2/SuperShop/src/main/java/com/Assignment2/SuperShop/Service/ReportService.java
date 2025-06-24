@@ -2,11 +2,13 @@ package com.Assignment2.SuperShop.Service;
 
 import com.Assignment2.SuperShop.Repository.ReportRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
 
 @Service
+@Transactional
 public class ReportService {
     private final ReportRepository reportRepo;
 

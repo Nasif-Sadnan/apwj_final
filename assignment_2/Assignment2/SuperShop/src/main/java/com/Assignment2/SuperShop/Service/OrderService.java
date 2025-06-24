@@ -6,11 +6,13 @@ import com.Assignment2.SuperShop.Repository.OrderItemRepository;
 import com.Assignment2.SuperShop.Repository.OrderRepository;
 import com.Assignment2.SuperShop.Repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@Transactional
 public class OrderService {
 
     private final OrderRepository orderRepo;

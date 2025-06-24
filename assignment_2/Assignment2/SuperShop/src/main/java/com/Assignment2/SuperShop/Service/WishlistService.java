@@ -3,10 +3,12 @@ package com.Assignment2.SuperShop.Service;
 import com.Assignment2.SuperShop.Entity.Wishlist;
 import com.Assignment2.SuperShop.Repository.WishlistRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class WishlistService {
     private final WishlistRepository wishlistRepo;
 

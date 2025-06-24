@@ -3,10 +3,12 @@ package com.Assignment2.SuperShop.Service;
 import com.Assignment2.SuperShop.Entity.Cart;
 import com.Assignment2.SuperShop.Repository.CartRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class CartService {
     private final CartRepository cartRepo;
 
