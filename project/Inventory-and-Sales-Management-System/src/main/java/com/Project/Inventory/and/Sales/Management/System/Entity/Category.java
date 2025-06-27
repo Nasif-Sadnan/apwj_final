@@ -12,6 +12,7 @@ public class Category {
     private String description;
 
 
+    public Category() {}
 
     public Category(Integer id, String name, String description) {
         this.id = id;

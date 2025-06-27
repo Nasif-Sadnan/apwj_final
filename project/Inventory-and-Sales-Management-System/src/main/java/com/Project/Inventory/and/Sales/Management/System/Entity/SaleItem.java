@@ -19,6 +19,7 @@ public class SaleItem {
     private Double price;
 
 
+    public SaleItem() {}
 
     public SaleItem(Integer id, Integer saleId, Integer productId, Integer quantity, Double price) {
         this.id = id;

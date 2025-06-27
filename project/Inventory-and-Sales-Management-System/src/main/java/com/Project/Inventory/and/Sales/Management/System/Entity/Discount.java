@@ -10,6 +10,7 @@ public class Discount {
     private LocalDate endDate;
 
 
+    public Discount() {}
 
     public Discount(Integer id, Integer productId, Double discountPercent, LocalDate startDate, LocalDate endDate) {
         this.id = id;

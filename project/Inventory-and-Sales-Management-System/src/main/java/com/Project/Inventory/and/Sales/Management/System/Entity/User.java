@@ -18,6 +18,8 @@ public class User {private Integer id;
     @NotNull
     private String role;
 
+    public User() {}
+
     public User(String email, Integer id, String username, String password, String role) {
         this.email = email;
         this.id = id;

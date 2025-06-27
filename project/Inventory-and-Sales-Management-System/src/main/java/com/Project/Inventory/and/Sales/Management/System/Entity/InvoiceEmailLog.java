@@ -9,6 +9,8 @@ public class InvoiceEmailLog {
     private LocalDateTime sentAt;
 
 
+    public InvoiceEmailLog() {
+    }
 
     public InvoiceEmailLog(Integer id, Integer saleId, String emailTo, LocalDateTime sentAt) {
         this.id = id;

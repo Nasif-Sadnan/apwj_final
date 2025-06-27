@@ -24,6 +24,7 @@ public class Product {
 
     private Boolean isAvailable;
 
+    public Product() {}
 
 
     public Product(Integer id, String name, Integer categoryId, Double price, Integer quantity, LocalDate expiryDate, Boolean isAvailable) {
